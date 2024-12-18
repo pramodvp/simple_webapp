@@ -1,0 +1,15 @@
+{
+    "TableName": "simple-web-app",
+    "KeySchema": [
+      { "AttributeName": "ProjectName", "KeyType": "HASH" },
+      { "AttributeName": "URL", "KeyType": "RANGE" }
+    ],
+    "AttributeDefinitions": [
+      { "AttributeName": "ProjectName", "AttributeType": "S" },
+      { "AttributeName": "URL", "AttributeType": "S" }
+    ],
+    "ProvisionedThroughput": {
+      "ReadCapacityUnits": 5,
+      "WriteCapacityUnits": 5
+    }
+}

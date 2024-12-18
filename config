@@ -1,0 +1,6 @@
+# Configure this application to run upon EC2 start
+export VENV_NAME="venv-simple-webapp"
+export TABLE_NAME="simple-web-app"
+export FLASK_APP=app.py
+export HOST="0.0.0.0"
+export PORT="8080"

@@ -1,0 +1,21 @@
+This simple webapp is tested on Amazon Linux 2 image. 
+##################
+Requirements: 
+
+##################
+Database: Dynamodb
+Create table using the script create-dynamo-table.sh or Terraform 0r AWS console. Refer create_table.json for schema definition and table name. 
+Load test data in the table using load_data.sh script - It can be run from the EC2.
+
+##################
+Compute: 
+EC2 with Amazon Linux image (latest)
+Python version 3.9 or above
+Python packages listed in the requirements.txt - Those will be installed by setup.sh 
+IAM role attached to EC2 with Dynamodb access 
+
+Run setup.sh from the current directory to configure and run the app. 
+
+Application will be accessible on http://localhost:8080 or http://<ec2 public ip>:8080
+
+

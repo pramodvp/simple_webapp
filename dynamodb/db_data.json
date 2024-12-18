@@ -1,0 +1,30 @@
+{
+    "simple-web-app": [
+      {
+        "PutRequest": {
+          "Item":
+          {
+            "ProjectName": {
+              "S": "freeCodeCamp"
+            },
+            "URL": {
+              "S": "https://github.com/freeCodeCamp/freeCodeCamp"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item":
+          {
+            "ProjectName": {
+              "S": "trending"
+            },
+            "URL": {
+              "S": "https://github.com/trending"
+            }
+          }
+        }
+      }
+    ]
+  }
