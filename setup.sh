@@ -1,14 +1,14 @@
-#!/bin/bash -e
+#!/bin/bash -ex
 # Creae a python virtual environment to run the application 
+DIR=$( dirname $0) 
+source ${DIR}/config
+python -m venv ${DIR}/${VENV_NAME}
 
-source config
-python -m venv ${VENV_NAME}
 # Activate the virtual environment 
-source ./${VENV_NAME}/bin/activate
+source ${DIR}/${VENV_NAME}/bin/activate
+
 # Install required python packages
-pip install -r requirements.txt
-
-
+pip install -r ${DIR}/requirements.txt
 
 # Run the application 
-flask run -h ${HOST} -p ${PORT}
+python ${DIR}/app.py

@@ -1,6 +1,9 @@
-#!/bin/bash -e
+#!/bin/bash -ex
 #
-source config
+DIR=$( dirname $0)
+source ${DIR}/config
 #
+source ${DIR}/${VENV_NAME}/bin/activate
+
 # Run the application 
-flask run -h ${HOST} -p ${PORT}
+python ${DIR}/app.py
