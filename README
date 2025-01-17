@@ -18,11 +18,11 @@ Run setup.sh from the current directory to configure and run the app.
 
 Application will be accessible as follows: 
 EC2: 
-Application home page: http://localhost:9090/welcome or http://<ec2 public ip>:9090/welcome
+Application home page: http://localhost:9090 or http://<ec2 public ip>:9090
 DynamoDB data access: http://localhost:9090/get-items or http://<ec2 public ip>:9090/get-items
 
 Application Load Balancer: 
-Application home page: http://<Application Load Balancer DNS Name>:9090/welcome
+Application home page: http://<Application Load Balancer DNS Name>:9090
 DynamoDB data access: http://<Application Load Balancer DNS Name>:9090/get-items
 
 
