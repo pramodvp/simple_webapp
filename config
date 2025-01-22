@@ -3,4 +3,5 @@ export VENV_NAME="venv-simple-webapp"
 export TABLE_NAME="simple-web-app"
 export FLASK_APP=app.py
 export HOST="0.0.0.0"
-export PORT="8080"
+export PORT="9090"
+export AWS_REGION=$(aws configure list | grep region | awk '{print $2}')
