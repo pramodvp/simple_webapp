@@ -27,7 +27,8 @@ useradd ${APP_USER}
 su - ${APP_USER} -c 'git clone https://github.com/pramodvp/simple_webapp.git'
 #
 # Load data to DynamoDB table: 
-su - ${APP_USER} -c "bash ~${APP_USER}/simple_webapp/dynamodb/load_data.sh"
+#su - ${APP_USER} -c "bash ~${APP_USER}/simple_webapp/dynamodb/load_data.sh"
+~${APP_USER}/simple_webapp/dynamodb/load_data.sh
 #
 #Setup web app 
 su - ${APP_USER} -c "bash ~${APP_USER}/simple_webapp/setup.sh" 
