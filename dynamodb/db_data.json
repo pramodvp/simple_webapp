@@ -4,10 +4,10 @@
         "PutRequest": {
           "Item":
           {
-            "ProjectName": {
+            "Timestamp": {
               "S": "freeCodeCamp"
             },
-            "URL": {
+            "Comments": {
               "S": "https://github.com/freeCodeCamp/freeCodeCamp"
             }
           }
@@ -17,10 +17,10 @@
         "PutRequest": {
           "Item":
           {
-            "ProjectName": {
+            "Timestamp": {
               "S": "trending"
             },
-            "URL": {
+            "Comments": {
               "S": "https://github.com/trending"
             }
           }
