@@ -63,6 +63,9 @@ setup_services() {
     sudo systemctl daemon-reload
     sudo systemctl enable "${WEB_APP_SERVICE_NAME}"
     sudo systemctl start "${WEB_APP_SERVICE_NAME}"
+    sudo systemctl enable httpd 
+    sudo systemctl start httpd 
+    
 }
 
 create_web_app_service
