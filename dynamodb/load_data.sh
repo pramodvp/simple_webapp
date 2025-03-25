@@ -23,7 +23,7 @@ data()
                 \"Timestamp\": {
                 \"S\": \"${DATE}\"
                 },
-                \"Comments\": {
+                \"Comment\": {
                 \"S\": \"${TEXT}\"
                 }
             }

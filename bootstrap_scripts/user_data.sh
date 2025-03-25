@@ -28,7 +28,39 @@ su - ${APP_USER} -c 'git clone https://github.com/pramodvp/simple_webapp.git'
 #
 # Load data to DynamoDB table: 
 #su - ${APP_USER} -c "bash ~${APP_USER}/simple_webapp/dynamodb/load_data.sh"
-~${APP_USER}/simple_webapp/dynamodb/load_data.sh
+~${APP_USER}/simple_webapp/dynamodb/load_data.sh BOOT
 #
 #Setup web app 
 su - ${APP_USER} -c "bash ~${APP_USER}/simple_webapp/setup.sh" 
+
+# App startup
+WEB_APP_START_SCRIPT="${APP_USER}/simple_webapp/start_app.sh"
+WEB_APP_SERVICE_NAME="CFSBootCamp-web-app"
+WEB_APP_SERVICE_PATH="/etc/systemd/system/${WEB_APP_SERVICE_NAME}.service"
+
+create_web_app_service() {
+echo "[Unit]
+Description=Web Application for BootCamp phase-2
+After=network.target
+
+[Service]
+ExecStart=${WEB_APP_START_SCRIPT}
+WorkingDirectory=${APP_USER}/simple_webapp
+Restart=no
+User=${APP_USER}
+TimeoutStartSec=60
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+" > ${WEB_APP_SERVICE_PATH}
+
+
+setup_services() {
+    sudo systemctl daemon-reload
+    sudo systemctl enable "${WEB_APP_SERVICE_NAME}"
+    sudo systemctl start "${WEB_APP_SERVICE_NAME}"
+}
+
+# create_web_app_service
+# setup_services
