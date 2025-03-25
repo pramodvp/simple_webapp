@@ -26,7 +26,7 @@ useradd ${APP_USER}
 # Clone simple-webapp project
 su - ${APP_USER} -c 'git clone https://github.com/pramodvp/simple_webapp.git'
 #
-chmod 755 /hom/${APP_USER}/simple_webapp/*sh
+chmod 755 /home/${APP_USER}/simple_webapp/*sh
 chmod 755 /home/${APP_USER}/simple_webapp/dynamodb/*sh
 # Load data to DynamoDB table: 
 #su - ${APP_USER} -c "bash ~${APP_USER}/simple_webapp/dynamodb/load_data.sh"
@@ -36,7 +36,7 @@ bash /home/${APP_USER}/simple_webapp/dynamodb/load_data.sh BOOT
 su - ${APP_USER} -c "bash ~${APP_USER}/simple_webapp/setup.sh" 
 
 # App startup
-WEB_APP_START_SCRIPT="/hom/${APP_USER}/simple_webapp/start_app.sh"
+WEB_APP_START_SCRIPT="/home/${APP_USER}/simple_webapp/start_app.sh"
 WEB_APP_SERVICE_NAME="CFSBootCamp-web-app"
 WEB_APP_SERVICE_PATH="/etc/systemd/system/${WEB_APP_SERVICE_NAME}.service"
 WORKING_DIR="/home/${APP_USER}/simple_webapp"
