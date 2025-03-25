@@ -11,4 +11,4 @@ source ${DIR}/${VENV_NAME}/bin/activate
 pip install -r ${DIR}/requirements.txt
 
 # Run the application 
-python ${DIR}/app.py
+nohup python ${DIR}/app.py & 
