@@ -35,4 +35,4 @@ data()
 }
 
 data 
-aws dynamodb batch-write-item --request-items file://${DATA_FILE}
+aws dynamodb batch-write-item --request-items --region=${AWS_REGION} file://${DATA_FILE}
