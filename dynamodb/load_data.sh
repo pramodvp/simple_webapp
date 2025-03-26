@@ -4,7 +4,7 @@ cd ${DIR}
 DATE=$( date )
 INPUT=${1:-NONE}
 SDATE=$(date "+%Y%m%d")
-DATA_FILE="${SDATE}_db_data.json"
+DATA_FILE="/tmp/${SDATE}_db_data.json"
 HOSTNAME=$( hostname )
 
 case ${INPUT} in 
@@ -40,5 +40,5 @@ data()
 }
 
 data 
-source ${DIR}/../config
+source $( readlink -f ${DIR}/../config ) 
 aws dynamodb batch-write-item --request-items --region=${AWS_REGION} file://${DATA_FILE}
