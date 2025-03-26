@@ -4,7 +4,8 @@ cd ${DIR}
 DATE=$( date )
 INPUT=${1:-NONE}
 SDATE=$(date "+%Y%m%d")
-DATA_FILE="/tmp/${SDATE}_db_data.json"
+PID=$$
+DATA_FILE="/tmp/${SDATE}_${PID}_db_data.json"
 HOSTNAME=$( hostname )
 
 case ${INPUT} in 

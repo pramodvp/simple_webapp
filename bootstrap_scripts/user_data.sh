@@ -29,9 +29,9 @@ su - ${APP_USER} -c 'git clone https://github.com/pramodvp/simple_webapp.git'
 APP_USER_HOME="/home/${APP_USER}"
 chmod 755 ${APP_USER_HOME}/simple_webapp/*sh
 chmod 755 ${APP_USER_HOME}/simple_webapp/dynamodb/*sh
-TOKEN=$( curl -s -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"`
+TOKEN=$( curl -s -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")
 AWS_REGION=$(curl http://169.254.169.254/latest/meta-data/placement/region -H "X-aws-ec2-metadata-token: $TOKEN") 
-echo "export AWS_REGION=${AWS_REGION}" >> ${APP_USER_HOME}/config
+echo "export AWS_REGION=${AWS_REGION}" >> ${APP_USER_HOME}/simple_webapp/config
 
 # Load data to DynamoDB table: 
 #su - ${APP_USER} -c "bash ~${APP_USER}/simple_webapp/dynamodb/load_data.sh"
