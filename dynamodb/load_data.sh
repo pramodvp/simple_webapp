@@ -3,7 +3,6 @@ DIR=$(dirname $0)
 cd ${DIR}
 DATE=$( date )
 INPUT=${1:-NONE}
-AWS_REGION=$( aws configure list | grep region | awk '{print $2}' )
 SDATE=$(date "+%Y%m%d")
 DATA_FILE="${SDATE}_db_data.json"
 HOSTNAME=$( hostname )
@@ -41,4 +40,5 @@ data()
 }
 
 data 
+source ${DIR}/../config
 aws dynamodb batch-write-item --request-items --region=${AWS_REGION} file://${DATA_FILE}

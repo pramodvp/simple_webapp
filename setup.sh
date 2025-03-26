@@ -9,6 +9,3 @@ source ${DIR}/${VENV_NAME}/bin/activate
 
 # Install required python packages
 pip install -r ${DIR}/requirements.txt
-
-# # Run the application 
-# nohup python ${DIR}/app.py & 
