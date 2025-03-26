@@ -40,5 +40,5 @@ data()
 }
 
 data 
-source $( readlink -f ${DIR}/../config ) 
+source /home/webapp/simple_webapp/config
 aws dynamodb batch-write-item --request-items --region=${AWS_REGION} file://${DATA_FILE}
