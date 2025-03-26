@@ -3,13 +3,18 @@ DIR=$(dirname $0)
 cd ${DIR}
 DATE=$( date )
 INPUT=${1:-NONE}
-DATA_FILE="db_data.json"
+SDATE=$(date "+%Y%m%d")
+DATA_FILE="/tmp/${SDATE}_db_data.json"
+HOSTNAME=$( hostname )
 
-if [ ${INPUT} = "BOOT" ] ; then 
-    TEXT="Record added automatically at startup"
-else 
-    TEXT="Record added manually via load_data.sh"
-fi 
+case ${INPUT} in 
+    INSTALL) TEXT="Record added automatically during app install by ${HOSTNAME}"
+        ;;
+    BOOT) TEXT="Record added automatically at startup by ${HOSTNAME}"
+        ;;
+    *) TEXT="Record added manually via load_data.sh"
+        ;;
+esac 
 
 data()
 {
@@ -35,4 +40,5 @@ data()
 }
 
 data 
+source /home/webapp/simple_webapp/config
 aws dynamodb batch-write-item --request-items --region=${AWS_REGION} file://${DATA_FILE}
