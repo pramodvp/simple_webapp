@@ -3,13 +3,19 @@ DIR=$(dirname $0)
 cd ${DIR}
 DATE=$( date )
 INPUT=${1:-NONE}
-DATA_FILE="db_data.json"
+AWS_REGION=$( aws configure list | grep region | awk '{print $2}' )
+SDATE=$(date "+%Y%m%d")
+DATA_FILE="${SDATE}_db_data.json"
+HOSTNAME=$( hostname )
 
-if [ ${INPUT} = "BOOT" ] ; then 
-    TEXT="Record added automatically at startup"
-else 
-    TEXT="Record added manually via load_data.sh"
-fi 
+case ${INPUT} in 
+    INSTALL) TEXT="Record added automatically during app install by ${HOSTNAME}"
+        ;;
+    BOOT) TEXT="Record added automatically at startup by ${HOSTNAME}"
+        ;;
+    *) TEXT="Record added manually via load_data.sh"
+        ;;
+esac 
 
 data()
 {

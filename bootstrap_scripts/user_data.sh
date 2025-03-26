@@ -30,7 +30,7 @@ chmod 755 /home/${APP_USER}/simple_webapp/*sh
 chmod 755 /home/${APP_USER}/simple_webapp/dynamodb/*sh
 # Load data to DynamoDB table: 
 #su - ${APP_USER} -c "bash ~${APP_USER}/simple_webapp/dynamodb/load_data.sh"
-bash /home/${APP_USER}/simple_webapp/dynamodb/load_data.sh BOOT
+bash /home/${APP_USER}/simple_webapp/dynamodb/load_data.sh INSTALL
 #
 #Setup web app 
 su - ${APP_USER} -c "bash ~${APP_USER}/simple_webapp/setup.sh" 
